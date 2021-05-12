@@ -1,0 +1,196 @@
+import tkinter
+from tkinter import ttk
+
+def Calculate():
+    global new_wind
+    try:
+        h = float(entry_KPD.get())
+        m1 = float(entry_KG.get())
+        tn = float(entry_temp.get())
+    except ValueError:
+        new_wind = tkinter.Tk()
+        new_wind.title("Расчет массы топлива")
+        new_wind.rowconfigure([0, 1], minsize=50)
+        new_wind.columnconfigure([0, 1], minsize=150)
+        label = tkinter.Label (master=new_wind, text= "Неверное значение")
+        label.grid(row=0, column=0, columnspan=2, pady = 10, padx = 10)
+        сalculate = tkinter.Button(master=new_wind, text="Пересчитать", command=App)
+        quit = tkinter.Button(master=new_wind, text="Закрыть", command=Quit)
+        сalculate.grid(row=1, column=0)
+        quit.grid(row=1, column=1, pady=10)
+        new_wind.mainloop()
+    finally:    
+        c = combobox_m.get()
+        h /= 100
+        if c == "al":
+            c1 = 920
+            tk = 660
+            met = " алюминия "
+        if c == "cu":
+            c1 = 400
+            tk = 1083
+            met = " меди "
+        if c == "zn":
+            c1 = 400
+            tk = 420
+            met = " цинка "
+        if c == "w":
+            c1 = 134
+            tk = 3410
+            met = " вольфрама "
+        if c == "au":
+            c1 = 130
+            tk = 1063
+            met = " золота "
+        if c == "k":
+            c1 = 741
+            tk = 64
+            met = " калия "
+        if c == "ca":
+            c1 = 624
+            tk = 838
+            met = " кальция "
+        if c == "co":
+            c1 = 414
+            tk = 1495
+            met = " кобальта "
+        if c == "li":
+            c1 = 3307
+            tk = 181
+            met = " лития "
+        if c == "mg":
+            c1 = 1047
+            tk = 650
+            met = " магния "
+        if c == "na":
+            c1 = 1235
+            tk = 98
+            met = " натрия "
+        if c == "ni":
+            c1 = 440
+            tk = 1453
+            met = " никеля "
+        if c == "sn":
+            c1 = 226
+            tk = 232
+            met = " олова "
+        if c == "pt":
+            c1 = 134
+            tk = 1769
+            met = " платины "
+        if c == "pb":
+            c1 = 130
+            tk = 327
+            met = " свинца "
+        if c == "ag":
+            c1 = 234
+            tk = 961
+            met = " серебра "
+        if c == "ti":
+            c1 = 527
+            tk = 1668
+            met = " титана "
+        if c == "cr":
+            c1 = 460
+            tk = 768
+            met = " хрома "
+        if c == "cs":
+            c1 = 218
+            tk = 29
+            met = " цезия "
+        if c == "zr":
+            c1 = 276
+            tk = 1852
+            met = " циркония "
+        q = 29000000 
+        try:
+            m2 = float((float(c1*m1*(tk-tn)))/(float(h*q)))
+        except ZeroDivisionError:
+            new_wind = tkinter.Tk()
+            new_wind.title("Расчет массы топлива")
+            new_wind.rowconfigure([0, 1], minsize=50)
+            new_wind.columnconfigure([0, 1], minsize=150)
+            label = tkinter.Label (master=new_wind, text= "Неверное значение. Деление на 0")
+            label.grid(row=0, column=0, columnspan=2, pady = 10, padx = 10)
+            сalculate = tkinter.Button(master=new_wind, text="Пересчитать", command=App)
+            quit = tkinter.Button(master=new_wind, text="Закрыть", command=Quit)
+            сalculate.grid(row=1, column=0)
+            quit.grid(row=1, column=1, pady=10)
+            new_wind.mainloop()
+        finally:
+            new_wind = tkinter.Tk()
+            new_wind.title("Расчет массы топлива")
+            new_wind.rowconfigure([0, 1], minsize=50)
+            new_wind.columnconfigure([0, 1], minsize=150)
+            label = tkinter.Label (master=new_wind, text= "Для расплавления  " + str(m1) + "кг" + met + "при КПД печи " + str(h*100) + "%  и начальной \nтемпературе " +str(tn)+" градусов необходимо " + str(m2) + "кг кокса")
+            label.grid(row=0, column=0, columnspan=2, pady = 10, padx = 10)
+            сalculate = tkinter.Button(master=new_wind, text="Пересчитать", command=App)
+            quit = tkinter.Button(master=new_wind, text="Закрыть", command=Quit)
+            сalculate.grid(row=1, column=0)
+            quit.grid(row=1, column=1, pady=10)
+            new_wind.mainloop()
+        
+
+def Quit():
+    window.destroy()
+    new_wind.destroy()
+
+def App():
+    Quit()
+    App1()
+
+def SQuit():
+    start_wind.destroy()
+    App1()
+
+def App1():
+
+    global window, entry_KPD, entry_KG, entry_temp, combobox_m
+
+    window = tkinter.Tk()
+    window.title("Расчет массы топлива")
+    window.rowconfigure([0, 1, 2, 3, 4], minsize=50)
+    window.columnconfigure([0, 1], minsize=150)
+
+    label = tkinter.Label (master=window, text="Эта программа расчитывает необходимое количество кокса(вид топлива, который \nполучают из каменного угля) для расплавления металла на основе введенных данных")
+    label.grid(row=0, column=0, columnspan=2, padx=10)
+    label_KPD = tkinter.Label (master=window, text="Введите КПД печи(%)")
+    label_KPD.grid(row=1, column=0)
+    entry_KPD = tkinter.Entry(master=window)
+    entry_KPD.grid(row=1, column=1)
+
+    label_KG = tkinter.Label (master=window, text="Введите массу металла(кг)")
+    label_KG.grid(row=2, column=0)
+    entry_KG = tkinter.Entry(master=window)
+    entry_KG.grid(row=2, column=1)
+
+    label_temp = tkinter.Label (master=window, text="Введите начальную температуру(C)")
+    label_temp .grid(row=3, column=0)
+    entry_temp  = tkinter.Entry(master=window)
+    entry_temp .grid(row=3, column=1)
+
+    label_m = tkinter.Label (master=window, text="Выберете металл из списка")
+    label_m .grid(row=4, column=0)
+    combobox_m = ttk.Combobox(master=window, values = ['al', 'cu', 'zn', 'w', 'au', 'k', 'ca', 'co', 'li', 'mg', 'na', 'ni', 'sn', 'pt', 'pb', 'ag', 'ti', 'cr', 'cs', 'zr'])
+    combobox_m.grid(row=4, column=1)
+
+    сalculate = tkinter.Button(master=window, text="Рассчитать", command=Calculate)
+    quit = tkinter.Button(master=window, text="Закрыть", command=Quit)
+    сalculate.grid(row=5, column=0)
+    quit.grid(row=5, column=1, pady=10)
+ 
+    window.mainloop()
+    
+
+start_wind = tkinter.Tk()
+start_wind.title("Расчет массы топлива")
+start_wind.rowconfigure([0, 1], minsize=80)
+start_wind.columnconfigure([0], minsize=300)
+
+label = tkinter.Label (master=start_wind, text="Рассчет массы топлива", font='72')
+label.grid(row=0, column=0)
+
+сalculate = tkinter.Button(master=start_wind, text="Начать", font='72', command=SQuit)
+сalculate.grid(row=1, column=0, ipadx = 5, ipady = 5)
+
+start_wind.mainloop()
