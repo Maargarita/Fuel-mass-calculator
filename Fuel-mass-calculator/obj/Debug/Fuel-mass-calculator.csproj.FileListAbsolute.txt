@@ -1,0 +1,22 @@
+C:\Users\Admin\source\repos\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.exe.config
+C:\Users\Admin\source\repos\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.exe
+C:\Users\Admin\source\repos\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.pdb
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Form1.resources
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Form2.resources
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Properties.Resources.resources
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.exe
+C:\Users\Admin\source\repos\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.pdb
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.exe.config
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.exe
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\bin\Debug\Fuel-mass-calculator.pdb
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csprojAssemblyReference.cache
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Form1.resources
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Form2.resources
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel_mass_calculator.Properties.Resources.resources
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csproj.GenerateResource.cache
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.csproj.CoreCompileInputs.cache
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.exe
+D:\учебные работы\Уч практика\пм_01\Fuel-mass-calculator\obj\Debug\Fuel-mass-calculator.pdb
