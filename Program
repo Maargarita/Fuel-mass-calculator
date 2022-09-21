@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace Fuel_mass_calculator
 {
     static class Program
     {
@@ -16,8 +16,16 @@ namespace WindowsFormsApp2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Application.Run(new Form2());
+
+            Form0 = new ApplicationContext(new Form1());
+            Application.Run(Form0);
+        }
+
+        public static void OpenForm(Form current, Form next)
+        {
+            Form0.MainForm = next;
+            current.Close();
+            Form0.MainForm.Show();
         }
     }
 }
@@ -34,7 +42,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace Fuel_mass_calculator
 {
     public partial class Form1 : Form
     {
@@ -42,9 +50,10 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-        private void Button1_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            Program.OpenForm(this, new Form2());
         }
     }
 }
@@ -61,7 +70,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace Fuel_mass_calculator
 {
     public partial class Form2 : Form
     {
@@ -69,9 +78,18 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
+
         public double h, m1, tn;
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы увурены, что хотите закрыть программу?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                Close();
+        }
+
         public string c;
-        private void Calcul_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -214,21 +232,19 @@ namespace WindowsFormsApp2
                     }
                     q = 29000000;
                     m2 = (c1 * m1 * (tk - tn)) / (h * q);
-                    
+
                     MessageBox.Show("Для расплавления  " + Convert.ToString(m1) + "кг" + met + "при КПД печи " + Convert.ToString(h * 100) + "%  и начальной \nтемпературе " + Convert.ToString(tn) + " градусов необходимо " + Convert.ToString(m2) + "кг коксованного угля");
                     TextBox_KPD.Clear();
                     TextBox_KG.Clear();
                     TextBox_C.Clear();
+                    ComboBox1.Text = "";
                 }
             }
             catch (System.FormatException)
             {
                 MessageBox.Show("Неверное значение");
             }
-        }
-        private void Clos_Click(object sender, EventArgs e)
-        {
-            Close();
+
         }
     }
 }
